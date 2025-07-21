@@ -1,0 +1,138 @@
+.chips_showcase {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(#fff 60%, #ffeaea);
+  overflow: hidden;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  55% {
+    opacity: 0.8;
+  }
+}
+.chips_showcase .chips_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.chips_showcase .chip_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.chips_showcase .chip_card:hover .chip_label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.chips_showcase .chip_card:hover .spark {
+  opacity: 1;
+  transform: scale(1);
+}
+.chips_showcase .chip_card:hover {
+  transform: translateY(-10px) rotate(2deg);
+}
+.chips_showcase .chip_item {
+  width: clamp(120px, 25vw, 320px);
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+.chips_showcase .chip_item:hover {
+  transform: rotate(4deg) scale(1.1);
+}
+.chips_showcase .chip_item_0 {
+  width: clamp(120px, 22vw, 300px);
+}
+.chips_showcase .chip_label {
+  transform: translateY(20px);
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 8px;
+}
+.chips_showcase .chip_label:hover {
+  transform: scale(1.05);
+}
+.chips_showcase .chip_label_0 {
+  color: #046eaa;
+}
+.chips_showcase .chip_label_1 {
+  color: #bbc436;
+}
+.chips_showcase .chip_label_2 {
+  color: #2e984b;
+}
+.chips_showcase .chip_label_3 {
+  color: #e8a108;
+}
+.chips_showcase .spark {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ff0, #f90, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.chips_showcase .parallax_crumbs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.chips_showcase .crumb {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ffca7a;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+.chips_showcase .crumb:nth-child(1) {
+  top: 10%;
+  left: 20%;
+}
+.chips_showcase .crumb:nth-child(2) {
+  top: 40%;
+  left: 10%;
+}
+.chips_showcase .crumb:nth-child(3) {
+  top: 30%;
+  right: 15%;
+}
+.chips_showcase .crumb:nth-child(4) {
+  bottom: 20%;
+  left: 25%;
+}
+.chips_showcase .crumb:nth-child(5) {
+  bottom: 10%;
+  right: 20%;
+}
+.chips_showcase .crumb:nth-child(6) {
+  top: 60%;
+  right: 30%;
+}/*# sourceMappingURL=ChipsShowcase.css.map */

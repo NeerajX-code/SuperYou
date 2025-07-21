@@ -1,0 +1,107 @@
+.secondSection {
+  width: 100%;
+  display: flex;
+  background-color: rgb(151, 12, 12);
+  color: white;
+  flex-wrap: wrap;
+  overflow: visible !important;
+  position: relative;
+  z-index: 1;
+}
+.secondSection .sec_left {
+  width: 50%;
+  padding-left: clamp(1rem, 3.5vw, 4rem);
+  padding-top: clamp(1rem, 2vw, 4rem);
+  padding-bottom: clamp(0.5rem, 4vw, 2rem);
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+.secondSection .sec_left .sec_text h1 {
+  font-size: clamp(2.8rem, 7.2vw, 12rem);
+  font-weight: 700;
+  line-height: clamp(1rem, 7.5vw, 4rem);
+}
+.secondSection .sec_left .sec_text h2 {
+  font-size: clamp(2rem, 5vw, 7rem);
+  font-weight: 700;
+}
+.secondSection .sec_left .sec_det {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vw, 0.8rem);
+}
+.secondSection .sec_left .sec_det .text_container {
+  margin: clamp(0.1rem, 1vw, 0.2rem);
+}
+.secondSection .sec_left .sec_det .text_container .text {
+  width: 100%;
+  font-size: clamp(3rem, 6.5vw, 12rem);
+  background-color: white;
+  color: red;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: clamp(0.2rem, 1vw, 0.6rem) clamp(0.4rem, 2vw, 0.8rem);
+  font-family: "Red Rose", sans-serif;
+}
+.secondSection .sec_left .sec_det .det_items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: clamp(0.2rem, 1vw, 0.4rem);
+  gap: clamp(0.4rem, 1vw, 0.4rem);
+}
+.secondSection .sec_left .sec_det .det_items h2 {
+  font-size: clamp(0.9rem, 2vw, 4rem);
+  border: 2px solid white;
+  padding: clamp(0.2rem, 4vw, 1rem);
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.secondSection .sec_right {
+  width: 50%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.secondSection .sec_right img {
+  width: 100%;
+  min-width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.split-text {
+  display: inline-block;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.char {
+  display: inline-block;
+}
+
+@media (max-width: 780px) {
+  .secondSection .sec_left,
+  .secondSection .sec_right {
+    width: 100%;
+  }
+  .secondSection .sec_left {
+    padding: clamp(1rem, 3.5vw, 4rem) clamp(1rem, 3.5vw, 4rem) clamp(0.5rem, 4vw, 2rem);
+    flex-direction: column;
+  }
+  .secondSection .sec_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .secondSection .sec_right img {
+    width: 100%;
+    min-width: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}/*# sourceMappingURL=SecondSection.css.map */

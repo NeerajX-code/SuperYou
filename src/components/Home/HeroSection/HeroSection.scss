@@ -1,0 +1,22 @@
+// section {
+//   height: 200vh;
+//   background: #f0f0f0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   gap: 4rem;
+// }
+
+.parallax {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.scroller {
+  display: inline-block;
+  white-space: nowrap;
+}

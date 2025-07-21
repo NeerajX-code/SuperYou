@@ -1,0 +1,88 @@
+.home_product_showcase {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.home_product_showcase .horizontal_scroll {
+  display: flex;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  /* 5 sections */
+}
+
+.home_product_showcase .showcase_wafer_first {
+  flex: 0 0 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #d57ca4, #ffdde9);
+  padding-top: clamp(1rem, 2vw, 2rem);
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lexend", sans-serif;
+  font-weight: 800;
+  color: white;
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_top h1 {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1.2rem 2rem;
+  background-color: #f40671;
+  color: white;
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  border: 3px solid #fff;
+  filter: drop-shadow(10px 10px 0px #ea2f7b);
+  transition: transform 0.3s ease;
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_top h1:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_bottom {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_img,
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_det {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_img img,
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_det img {
+  width: 80%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_img img {
+  transform: rotate(-8deg);
+  filter: contrast(1.2) brightness(1.1);
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_img img:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.home_product_showcase .showcase_wafer_first .wafer_bottom .wafer_det img {
+  border: 2px solid white;
+}
+
+/*# sourceMappingURL=ProductShowcase.css.map */
