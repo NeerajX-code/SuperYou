@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 const HeroSection = lazy(() => import('../../components/Home/HeroSection/HeroSection'));
 const SecondSection = lazy(() => import('../../components/Home/SecondSection/SecondSection'));
 const ProductShowcase = lazy(() => import('../../components/Home/ProductShowcase/ProductShowcase'));
