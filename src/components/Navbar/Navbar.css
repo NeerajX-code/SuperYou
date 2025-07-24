@@ -3,6 +3,7 @@
   padding: 10px clamp(1rem, 2vw, 2rem);
   display: flex;
   align-items: center;
+  font-family: "Lexend", sans-serif;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -59,7 +60,8 @@
   color: black;
   text-decoration: none;
   transition: all 0.3s ease;
-  background-color: #ffe066; /* Yellow color, adjust as needed */
+  background-color: red;
+  color: white; /* Yellow color, adjust as needed */
   padding: 8px 15px;
   border-radius: 50px;
 }
@@ -90,7 +92,7 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
-  background-color: #ffe066; /* Yellow color, adjust as needed */
+  background-color: red; /* Yellow color, adjust as needed */
   padding: 8px 15px;
   border-radius: 50px;
   position: relative;
@@ -135,7 +137,7 @@
 .nav_right_menu svg {
   width: 1.5em;
   height: 1.5em;
-  color: #333; /* Icon color */
+  color: white; /* Icon color */
 }
 
 .nav_right a {
@@ -143,7 +145,7 @@
   align-items: center;
   gap: 0.1em;
   font-size: clamp(1rem, 2vw, 1.5rem);
-  color: black;
+  color: white;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -184,7 +186,7 @@
 }
 @media (max-width: 768px) { /* Common breakpoint for tablets */
   .nav_center {
-    display: none; /* Hide center nav links */
+    display: flex; /* Hide center nav links */
   }
   .nav_right_menu {
     display: flex; /* Show menu button */

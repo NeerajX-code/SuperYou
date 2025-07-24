@@ -1,0 +1,123 @@
+ .product_information {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: clamp(1rem, 2vw, 2rem);
+     transition: all 0.2s ease-in-out;
+
+     .faq_cat_title {
+         width: fit-content;
+         margin: 0 auto;
+         font-size: clamp(1.2rem, 3vw, 2rem);
+         color: #eb1400;
+         position: relative;
+         cursor: pointer;
+         font-family: "Lexend",sans-serif;
+         transition: color 0.3s ease, transform 0.3s ease;
+
+         // Bottom border as animated underline
+         &::after {
+             content: "";
+             position: absolute;
+             left: 0;
+             bottom: -4px;
+             width: 100%;
+             height: 2px;
+             background-color: black;
+             transform: scaleX(1);
+             transform-origin: left;
+             transition: transform 0.3s ease;
+         }
+
+         // Microinteraction on hover
+         &:hover {
+             color: rgb(11, 126, 118);
+             transform: scale(1.03);
+
+             &::after {
+                 transform: scaleX(1.15);
+             }
+         }
+
+         // Respect user's reduced motion preference
+         @media (prefers-reduced-motion: reduce) {
+             transition: none;
+
+             &::after {
+                 transition: none;
+             }
+
+             &:hover {
+                 transform: none;
+             }
+         }
+     }
+
+ }
+
+ .faq-item {
+     width: 100%;
+     margin-bottom: 1rem;
+     border-radius: 20px;
+     background: rgba(255, 255, 255, 0.05);
+     border: 1px solid rgba(255, 255, 255, 0.15);
+     backdrop-filter: blur(10px);
+     overflow: hidden;
+     box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+     transition: all 0.3s ease;
+
+
+     &:hover {
+         background: rgba(0, 0, 0, 0.03);
+     }
+
+     .faq-question {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         width: 100%;
+         background: none;
+         border: none;
+         cursor: pointer;
+         padding: 1.2rem clamp(0.6rem, 1vw, 1.5rem);
+         font-family: "Lexend", sans-serif;
+         font-size: clamp(1rem, 2vw, 1.2rem);
+         font-weight: 600;
+         color: inherit;
+         text-align: left;
+         gap: 1rem;
+         transition: color 0.3s ease;
+
+         h2 {
+             flex: 1;
+             font-size: inherit;
+             font-weight: inherit;
+             margin: 0;
+         }
+
+         .faq-icon {
+             transition: transform 0.3s ease;
+         }
+
+         &[aria-expanded="true"] .faq-icon {
+             transform: rotate(180deg);
+         }
+     }
+
+     .faq-answer {
+         padding: 0 1.5rem 1.2rem;
+         font-size: 1rem;
+         color: #565454;
+         line-height: 1.6;
+     }
+ }
+
+ @media (max-width: 600px) {
+     .faq-question {
+         font-size: 1rem;
+     }
+
+     .faq-answer {
+         font-size: 0.95rem;
+     }
+ }

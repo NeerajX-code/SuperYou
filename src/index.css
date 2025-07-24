@@ -5,7 +5,10 @@
 }
 
 html,
-body {
-    height: 100%;
+body,
+#root {
+    height: auto;
     width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }

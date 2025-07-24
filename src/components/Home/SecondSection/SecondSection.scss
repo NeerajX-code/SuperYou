@@ -1,7 +1,7 @@
 .secondSection {
     width: 100%;
     display: flex;
-    background-color: rgb(151, 12, 12);
+    background-color: #eb1400;
     color: white;
     flex-wrap: wrap;
     overflow: visible !important;
@@ -44,7 +44,7 @@
                     width: 100%;
                     font-size: clamp(3rem, 6.5vw, 12rem);
                     background-color: white;
-                    color: red;
+                    color: #eb1400;
                     width: fit-content;
                     border-bottom-left-radius: 15px;
                     border-top-right-radius: 15px;

@@ -12,12 +12,12 @@
   flex-direction: column;
   align-items: center;
   padding-top: 1rem;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(1rem, 2vw, 1rem);
 }
 .home_footer .home_footer_wrapper .footer_top {
   color: red;
   font-family: "Lexend", sans-serif;
-  font-size: clamp(1.5rem, 5vw, 6rem);
+  font-size: clamp(1.5rem, 4.5vw, 5rem);
   transition: all 2ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .home_footer .home_footer_wrapper .footer_bottom {
@@ -41,7 +41,7 @@
 }
 .home_footer .home_footer_wrapper .footer_bottom .footer_left p {
   width: 100%;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   transition: all 2ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .home_footer .home_footer_wrapper .footer_bottom .footer_center {
@@ -50,14 +50,14 @@
   gap: clamp(0.5rem, 2vw, 1rem);
 }
 .home_footer .home_footer_wrapper .footer_bottom .footer_center h2 {
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
   color: #111;
   margin-bottom: 0.5rem;
   transition: all 2ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .home_footer .home_footer_wrapper .footer_bottom .footer_center p {
   width: 100%;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   transition: all 2ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .home_footer .home_footer_wrapper .footer_bottom .footer_right {
@@ -73,12 +73,12 @@
 }
 .home_footer .home_footer_wrapper .footer_bottom .footer_right p {
   width: 100%;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   transition: all 2ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .home_footer:hover {
-  background-color: red;
+  background-color: #eb1400;
   color: white;
 }
 .home_footer:hover .footer_top {

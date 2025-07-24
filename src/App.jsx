@@ -1,31 +1,23 @@
-import Navbar from './components/Navbar/Navbar'
+import { Suspense, useEffect } from "react";
 import { gsap } from "gsap";
-import MainRoutes from './routes/MainRoutes';
-import LocomotiveScroll from "locomotive-scroll";
-import { useEffect } from "react";
-import "locomotive-scroll/dist/locomotive-scroll.css";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// gsap.registerPlugin(ScrollTrigger);
+import Navbar from './components/Navbar/Navbar';
+import MainRoutes from './routes/MainRoutes';
+import HomeFooter from './components/Home/HomeFooter/HomeFooter';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-  useEffect(() => {
-    const scroll = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-      lerp: 0.08,
-    });
-
-    return () => {
-      scroll.destroy();
-    };
-  }, []);
   return (
-    <div data-scroll-container>
+    <div className="app">
+      <Suspense fallback={<div className="loading-fallback">Loading...</div>}>
       <Navbar />
       <MainRoutes />
+      <HomeFooter />
+      </Suspense>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

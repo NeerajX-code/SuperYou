@@ -9,92 +9,73 @@ const chips = [
   {
     src: "https://ik.imagekit.io/nkde9n0dc/SuperYou/Super%20Masala%20Chips.png?updatedAt=1752927006674",
     name: "Super Masala",
+    description: "Packed with bold Indian spices for a tangy, spicy crunch.",
+    price: "₹25",
   },
   {
     src: "https://ik.imagekit.io/nkde9n0dc/SuperYou/Sour%20Chips.png?updatedAt=1752927038441",
     name: "Tangy Sour",
+    description: "Zesty lemon twist with a sour punch that tingles your tongue.",
+    price: "₹25",
   },
   {
     src: "https://ik.imagekit.io/nkde9n0dc/SuperYou/Pudina%20Chips.png?updatedAt=1752927074694",
     name: "Mint Pudina",
+    description: "Refreshing pudina flavor with a cool, crisp aftertaste.",
+    price: "₹25",
   },
   {
     src: "https://ik.imagekit.io/nkde9n0dc/SuperYou/Cheese%20Chips.png?updatedAt=1752927058018",
     name: "Cheesy Burst",
+    description: "Creamy, cheesy explosion in every bite – dangerously addictive.",
+    price: "₹30",
   },
 ];
+
 
 const ChipsShowcase = () => {
   const containerRef = useRef();
 
- useLayoutEffect(() => {
-  const ctx = gsap.context(() => {
-    // Parallax crumbs (clean drift)
-    gsap.utils.toArray(".crumb").forEach((crumb, i) => {
-      gsap.to(crumb, {
-        y: gsap.utils.random(-30, 30),
-        x: gsap.utils.random(-20, 20),
-        rotate: gsap.utils.random(-15, 15),
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        duration: gsap.utils.random(5, 8),
-        delay: i * 0.2,
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+    
+
+      // Smooth chip intro with delay + depth
+      gsap.to(".chip_card", {
+        x:0,
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        stagger: 0.25,
+        ease: "power4.out",
+        duration: 1.1,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 75%",
+          end: "bottom 60%",
+          scrub: true,
+        },
       });
-    });
 
-    // Smooth chip intro with delay + depth
-    gsap.from(".chip_card", {
-      y: 60,
-      opacity: 0,
-      scale: 0.5,
-      stagger: 0.25,
-      ease: "power4.out",
-      duration: 1.1,
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 75%",
-        end: "bottom 60%",
-        scrub: true, // Awwwards-like scroll sync
-      },
-    });
+    }, containerRef);
 
-
-    // Subtle spark pop
-    gsap.from(".spark", {
-      scale: 0.5,
-      opacity: 0,
-      stagger: 0.2,
-      ease: "expo.out",
-      duration: 0.6,
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 70%",
-        scrub: true,
-      },
-    });
-
-  }, containerRef);
-
-  return () => ctx.revert();
-}, []);
+    return () => ctx.revert();
+  }, []);
 
 
   return (
     <div className="chips_showcase" ref={containerRef}>
 
-      <div className="parallax_crumbs">
-        {[...Array(6)].map((_, i) => (
-          <div key={i} className="crumb" />
-        ))}
-      </div>
-
       <div className="chips_container">
         {chips.map((chip, i) => (
           <div className="chip_card" key={i}>
-            <img src={chip.src} alt={chip.name} className={`chip_item chip_item_${i}`} />
-            <div className={`chip_label chip_label_${i}`}>{chip.name}</div>
-            <div className="spark" />
+            <img  src={chip.src} alt={chip.name} className={`chip_item chip_item_${i}`} />
+            <div className={`chip_label chip_label_${i}`}>
+              <h2>{chip.name}</h2>
+              <p>{chip.description}</p>
+              <p className="price">Buy Pack of 10 Only at-{chip.price}</p>
+                <button>View More</button>
+            </div>
           </div>
         ))}
       </div>

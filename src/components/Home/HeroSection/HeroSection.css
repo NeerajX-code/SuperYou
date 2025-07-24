@@ -1,13 +1,53 @@
-.parallax {
+.hero_wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
-  white-space: nowrap;
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #111;
 }
-
-.scroller {
-  display: inline-block;
-  white-space: nowrap;
+.hero_wrapper .hero_img {
+  width: 500px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 540px) {
+  .hero_wrapper .hero_img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.hero_wrapper .hero_glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.35), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
+}
+.hero_wrapper .sparkle_layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
 }/*# sourceMappingURL=HeroSection.css.map */

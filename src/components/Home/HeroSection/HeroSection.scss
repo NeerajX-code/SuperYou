@@ -1,22 +1,55 @@
-// section {
-//   height: 200vh;
-//   background: #f0f0f0;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   gap: 4rem;
-// }
-
-.parallax {
+.hero_wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
-  white-space: nowrap;
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #111;
-}
 
-.scroller {
-  display: inline-block;
-  white-space: nowrap;
+  .hero_img {
+    width: 500px;
+    object-fit: contain;
+    border-radius: 1.5rem;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 540px) {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .hero_glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.35), transparent 70%);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.2;
+    }
+  }
+
+  // Optional: Sparkles
+  .sparkle_layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+  }
 }

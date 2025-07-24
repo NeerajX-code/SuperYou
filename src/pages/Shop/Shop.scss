@@ -1,0 +1,9 @@
+.shop {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    overflow: auto;
+    padding-top: clamp(4rem, 5vw, 6rem);
+    display: flex;
+    flex-direction: column;
+}

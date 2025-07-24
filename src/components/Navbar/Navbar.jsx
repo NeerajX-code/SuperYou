@@ -71,16 +71,15 @@ const Navbar = () => {
       </div>
       <div className="nav_center">
         <NavLink to="/"><House />Home</NavLink>
-        <NavLink to="/shop"><Store />Shop</NavLink>
-        <NavLink to="/about"><BookUser />About us</NavLink>
-        <NavLink to="/faq"><MessageCircleQuestionMark />FAQ</NavLink>
+        <NavLink to="/Shop"><Store />Shop</NavLink>
+        <NavLink to="/About"><BookUser />About us</NavLink>
+        <NavLink to="/Faq"><MessageCircleQuestionMark />FAQ</NavLink>
       </div>
       <div className="nav_right">
         <div className="nav_right_first">
           <NavLink to="/profile"><UserRound /></NavLink>
           <NavLink to="/cart"><ShoppingCart /></NavLink>
         </div>
-        <button className="nav_right_sec"><Search /></button>
         <button className="nav_right_menu"><Menu /></button>
       </div>
     </nav>

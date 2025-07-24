@@ -1,0 +1,21 @@
+.carousel {
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+// Hide all swiper navigation buttons safely
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}

@@ -76,7 +76,7 @@ const SuperScience = () => {
                             variants={{
                                 rest: { y: 0, opacity: 1 },
                                 hover: {
-                                    y: -8,
+                                    x: 8,
                                     opacity: 1,
                                     transition: {
                                         duration: 0.3,

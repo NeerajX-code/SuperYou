@@ -1,86 +1,112 @@
-.home_product_showcase {
+.product_showcase{
+  width: 100%;
+  position: relative;
+
+  .product_card {
     width: 100%;
-    height: fit-content;
-    position: relative;
-    overflow: hidden;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 100vh;
+    max-height: 920px;
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(2rem, 6vw, 6rem);
+    align-items: center;
 
-    .horizontal_scroll {
-        display: flex;
-        height: 100%;
-        width: fit-content;
-        /* 5 sections */
+    @media (max-width: 900px) {
+      flex-direction:column-reverse;
+      padding: 3rem 2rem;
+    }
+  }
+
+  .product_showcase_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 2;
+    font-family: "Lexend",sans-serif;
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: #000;
     }
 
-
-    .showcase_wafer_first {
-        flex: 0 0 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        background: linear-gradient(145deg, #d57ca4, #ffdde9);
-        padding-top: clamp(1rem, 2vw, 2rem);
-
-        .wafer_top {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Lexend", sans-serif;
-            font-weight: 800;
-            color: white;
-
-            h1 {
-                width: fit-content;
-                padding: 1.2rem 2rem;
-                background-color: #f40671;
-                color: white;
-                text-align: center;
-                font-size: clamp(2.2rem, 5vw, 3.5rem);
-                border: 3px solid #fff;
-                filter: drop-shadow(10px 10px 0px #ea2f7b);
-                transition: transform 0.3s ease;
-
-                &:hover {
-                    transform: scale(1.05) rotate(-1deg);
-                }
-            }
-        }
-
-        .wafer_bottom {
-            width: 100%;
-            display: flex;
-            gap: 1rem;
-
-            .wafer_img,
-            .wafer_det {
-                width: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                img {
-                    width: 80%;
-                    object-fit: cover;
-                    transition: transform 0.3s ease;
-                }
-            }
-
-            .wafer_img {
-                img {
-                    transform: rotate(-8deg);
-                    filter: contrast(1.2) brightness(1.1);
-
-                    &:hover {
-                        transform: rotate(0deg) scale(1.05);
-                    }
-                }
-            }
-
-            .wafer_det {
-                img {
-                    border: 2px solid white;
-                }
-            }
-        }
+    p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: #333;
+      max-width: 500px;
     }
+
+    .price {
+      font-family: "Lexend",sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: #f93343;
+      font-weight: bold;
+    }
+
+    button {
+      font-family: "Lexend",sans-serif;
+      padding: 0.9rem 2rem;
+      background: #e63946;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: fit-content;
+      transition: 0.3s;
+
+      &:hover {
+        background: #d62839;
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .product_showcase_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .image_wrapper {
+      position: relative;
+      max-width: 500px;
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      width: 100%;
+      transform: rotate(-6deg);
+      transition: 0.4s ease;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+
+      &:hover {
+        transform: rotate(0deg) scale(1.05);
+      }
+    }
+
+    .bg_circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #fff2dd, #f1d3a0);
+      z-index: -1;
+      filter: blur(50px);
+    }
+
+    @media (max-width: 900px) {
+      margin-top: 2rem;
+    }
+  }
 }
