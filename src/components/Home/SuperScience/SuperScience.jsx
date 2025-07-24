@@ -2,15 +2,18 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import "./SuperScience.css";
 
 const btnText = "View More".split("");
 
 const SuperScience = () => {
     const sectionRef = useRef();
+     const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
+        if (shouldReduceMotion) return;
+
         const context = gsap.context(() => {
             const split = new SplitType(".super_h1", { types: "words, chars" });
 
@@ -25,7 +28,6 @@ const SuperScience = () => {
                     start: "top 80%",
                 },
             });
-
             // paragraph + button
             gsap.from(".super_p, .super_cont p", {
                 opacity: 0,
@@ -52,7 +54,7 @@ const SuperScience = () => {
         }, sectionRef);
 
         return () => context.revert();
-    }, []);
+    }, [shouldReduceMotion]);
 
     return (
         <section ref={sectionRef} className="super_science">

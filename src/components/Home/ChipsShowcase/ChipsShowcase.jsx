@@ -1,7 +1,10 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion , useReducedMotion } from "framer-motion"
 import "./ChipsShowcase.css";
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,32 +38,34 @@ const chips = [
 
 const ChipsShowcase = () => {
   const containerRef = useRef();
+  const prefersReducedMotion = useReducedMotion();
 
   useLayoutEffect(() => {
+     if (prefersReducedMotion) return;
+     
     const ctx = gsap.context(() => {
-    
-
-      // Smooth chip intro with delay + depth
-      gsap.to(".chip_card", {
-        x:0,
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        stagger: 0.25,
-        ease: "power4.out",
-        duration: 1.1,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 75%",
-          end: "bottom 60%",
-          scrub: true,
-        },
+      gsap.utils.toArray(".chip_card").forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { autoAlpha: 0, y: 100 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
       });
-
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
+
 
 
   return (
@@ -68,13 +73,36 @@ const ChipsShowcase = () => {
 
       <div className="chips_container">
         {chips.map((chip, i) => (
-          <div className="chip_card" key={i}>
-            <img  src={chip.src} alt={chip.name} className={`chip_item chip_item_${i}`} />
+          <div className="chip_card" key={i}
+          >
+            <motion.img src={chip.src} alt={chip.name} loading="lazy" className={`chip_item chip_item_${i}`}
+              whileHover={{ scale: 1.08, rotate: -2 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            />
             <div className={`chip_label chip_label_${i}`}>
-              <h2>{chip.name}</h2>
-              <p>{chip.description}</p>
-              <p className="price">Buy Pack of 10 Only at-{chip.price}</p>
-                <button>View More</button>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+              >{chip.name}</motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              >{chip.description}</motion.p>
+              <motion.p className="price"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.4 }}
+              >Buy Pack of 10 Only at-{chip.price}</motion.p>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >View More</motion.button>
             </div>
           </div>
         ))}

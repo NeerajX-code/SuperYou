@@ -21,8 +21,10 @@
   justify-content: space-between;
   align-items: center;
   transition: transform 0.3s ease;
-  cursor: pointer;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
   padding: clamp(0.5rem, 4vw, 4rem);
+  cursor: pointer;
 }
 @media (max-width: 720px) {
   .chips_showcase .chip_card {

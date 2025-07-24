@@ -1,10 +1,10 @@
 .secondSection {
   width: 100%;
   display: flex;
-  background-color: #eb1400;
+  background: radial-gradient(circle at top left, #ff4d00, rgb(238, 22, 2) 60%, #b20000);
   color: white;
   flex-wrap: wrap;
-  overflow: visible !important;
+  overflow: hidden !important;
   position: relative;
   z-index: 1;
 }

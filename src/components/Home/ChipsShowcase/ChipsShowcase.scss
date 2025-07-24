@@ -22,8 +22,10 @@
         justify-content: space-between;
         align-items: center;
         transition: transform 0.3s ease;
-        cursor: pointer;
+        will-change: transform, opacity;
+        transform-style: preserve-3d;
         padding: clamp(0.5rem, 4vw, 4rem);
+        cursor: pointer;
 
         @media (max-width:720px) {
             flex-direction: column;
@@ -62,7 +64,7 @@
     .chip_label {
         display: flex;
         flex-direction: column;
-        gap: clamp(0.4rem,0.8vw,0.8rem);
+        gap: clamp(0.4rem, 0.8vw, 0.8rem);
         align-items: center;
         font-family: 'Lexend', sans-serif;
         font-weight: 600;

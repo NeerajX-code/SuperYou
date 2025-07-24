@@ -67,7 +67,7 @@ const Navbar = () => {
       style={{ fontFamily: "Bebas Neue" }}
     >
       <div className="nav_left">
-        <img src="https://metamask.io/images/icons/metamask-logo-horizontal.svg" alt="MetaMask Logo" />
+        <img src="https://ik.imagekit.io/nkde9n0dc/SuperYou/superyou-protein-wafer-india.avif?updatedAt=1753363942789" alt="SuperYou Logo" />
       </div>
       <div className="nav_center">
         <NavLink to="/"><House />Home</NavLink>

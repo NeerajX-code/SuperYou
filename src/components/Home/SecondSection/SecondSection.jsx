@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
 import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import "./SecondSection.css";
 
 const fadeDownContainer = {
@@ -112,10 +111,10 @@ const SecondSection = () => {
 
       <motion.div
         className="sec_right"
-        initial={{ y: 80, opacity: 0 }}
+        initial={{ y: 60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+        transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
       >
         <img
           loading="lazy"
