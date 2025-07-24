@@ -1,0 +1,27 @@
+.menu_items{
+  display: none;
+}
+
+.menu_items a{
+    background: radial-gradient(circle at top left, #ff4d00, rgb(215, 55, 6) 60%, #b20000);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-family: "Lexend";
+    font-size: .9rem;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 50px;
+}
+
+@media (max-width:900px) {
+    .menu_items{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 110%;
+        right: clamp(20px,1vw,40px);
+    }
+}

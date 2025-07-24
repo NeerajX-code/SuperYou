@@ -1,64 +1,82 @@
 import "./Navbar.css";
 import { NavLink } from 'react-router-dom';
+import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import {
-  BookUser, House, Menu, MessageCircleQuestionMark,
-  Search, ShoppingCart, Store, UserRound
+  Cross, Menu,
+  ShoppingCart, UserRound,
+  X
 } from 'lucide-react';
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import MenuIcon from "./Menu/Menu";
+import { navLinks } from "./NavLink";
+
+const MotionNavLink = motion.create(NavLink);
 
 const Navbar = () => {
   const navRef = useRef(null);
   const [isCompact, setIsCompact] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  let lastScroll = window.scrollY;
-  let scrollUpCount = 0;
-  let scrollTimeout = null;
+  const navLinkData = navLinks;
+
+  let lastScroll = useRef(window.scrollY);
+  let scrollUpCount = useRef(0);
+  let scrollTimeout = useRef(null);
+  let ticking = useRef(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.scrollY;
+          const scrollDelta = currentScroll - lastScroll.current;
 
-      // Blur effect only when scrolled
-      setIsScrolled(currentScroll > 20);
+          // Apply blur when scrolled
+          setIsScrolled(currentScroll > 10);
 
-      if (currentScroll < lastScroll) {
-        // User is scrolling up
-        scrollUpCount += 1;
+          // ✅ Always show navbar at top of page
+          if (currentScroll < 10) {
+            gsap.killTweensOf(navRef.current);
+            gsap.to(navRef.current, { y: 0, duration: 0.4, ease: "power2.out" });
+            setIsHidden(false);
+          }
 
-        if (scrollUpCount >= 2) {
-          setIsHidden(false);
-          gsap.to(navRef.current, { y: 0, duration: 0.5, ease: "power2.out" });
-          scrollUpCount = 0;
-        }
+          // ✅ Scroll Up by 50px or more → show nav
+          else if (scrollDelta < -50) {
+            gsap.killTweensOf(navRef.current);
+            gsap.to(navRef.current, { y: 0, duration: 0.4, ease: "power2.out" });
+            setIsHidden(false);
+          }
 
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          scrollUpCount = 0;
-        }, 500); // must scroll up twice within 500ms
-      } else {
-        // Scrolling down
-        if (!isHidden) {
-          gsap.to(navRef.current, { y: "-100%", duration: 0.5, ease: "power2.in" });
-          setIsHidden(true);
-        }
-        scrollUpCount = 0;
+          // ✅ Scroll Down by 10px or more → hide nav
+          else if (scrollDelta > 10) {
+            if (!isHidden) {
+              gsap.killTweensOf(navRef.current);
+              gsap.to(navRef.current, { y: "-100%", duration: 0.4, ease: "power2.in" });
+              setIsHidden(true);
+            }
+          }
+
+          lastScroll.current = currentScroll;
+          ticking.current = false;
+        });
+
+        ticking.current = true;
       }
-
-      lastScroll = currentScroll;
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      clearTimeout(scrollTimeout);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isHidden]);
+
+
 
   return (
     <nav
@@ -70,18 +88,78 @@ const Navbar = () => {
         <img src="https://ik.imagekit.io/nkde9n0dc/SuperYou/superyou-protein-wafer-india.avif?updatedAt=1753363942789" alt="SuperYou Logo" />
       </div>
       <div className="nav_center">
-        <NavLink to="/"><House />Home</NavLink>
-        <NavLink to="/Shop"><Store />Shop</NavLink>
-        <NavLink to="/About"><BookUser />About us</NavLink>
-        <NavLink to="/Faq"><MessageCircleQuestionMark />FAQ</NavLink>
+        {navLinkData.map((link, index) => (
+          <MotionNavLink
+            key={index}
+            to={link.to}
+            className="nav_link"
+            whileHover={{
+              scale: 1.05,
+              rotate: 0.1,
+              transition: {
+                duration: 0.4,
+                ease: [0.25, 1, 0.5, 1]
+              }
+            }}
+          >{React.createElement(link.icon, { size: 18 })}
+            <span>
+              {link.label}
+            </span>
+          </MotionNavLink>
+        ))}
       </div>
       <div className="nav_right">
         <div className="nav_right_first">
-          <NavLink to="/profile"><UserRound /></NavLink>
-          <NavLink to="/cart"><ShoppingCart /></NavLink>
+          <NavLink className="profile" to="/profile"><UserRound /></NavLink>
+          <NavLink className="cart" to="/cart"><ShoppingCart /></NavLink>
         </div>
-        <button className="nav_right_menu"><Menu /></button>
+
+        <AnimatePresence mode="wait">
+          <motion.button
+            key="menu-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            className="nav_right_menu"
+            initial={{ scale: 0.8, opacity: 0, rotate: -90 }}
+            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+            exit={{ scale: 0.8, opacity: 0, rotate: 90 }}
+            whileHover={{ scale: 1.05, boxShadow: "0px 5px 20px rgba(0,0,0,0.15)" }}
+            whileTap={{ scale: 0.95 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 20
+            }}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {!isOpen ? (
+                <motion.div
+                  key="menu-icon"
+                  initial={{ y: -20, opacity: 0, rotate: -30 }}
+                  animate={{ y: 0, opacity: 1, rotate: 0 }}
+                  exit={{ y: 20, opacity: 0, rotate: 30 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <Menu size={42} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="x-icon"
+                  initial={{ y: 20, opacity: 0, rotate: 30 }}
+                  animate={{ y: 0, opacity: 1, rotate: 0 }}
+                  exit={{ y: -20, opacity: 0, rotate: -30 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <X size={38} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </AnimatePresence>
+
+
+
       </div>
+      {isOpen && <MenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />}
     </nav>
   );
 };

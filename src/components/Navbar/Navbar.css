@@ -67,10 +67,10 @@
   display: flex;
   align-items: center;
   gap: 0.4em;
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-family: cursive;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
   color: black;
   text-decoration: none;
-  transition: all 0.3s ease;
   background: radial-gradient(circle at top left, #ff4d00, rgb(215, 55, 6) 60%, #b20000);
   color: white;
   /* Yellow color, adjust as needed */
@@ -78,17 +78,9 @@
   border-radius: 50px;
 }
 
-.nav_center a:hover {
-  color: #333;
-  transform: scale(1.05);
-}
-
 .nav_center svg {
   width: 1.2em;
   height: 1.2em;
-  flex-shrink: 0;
-  padding-bottom: 0.2em;
-  transition: transform 0.4s ease;
 }
 
 /* Right Section */
@@ -104,7 +96,7 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
-  background-color: red;
+  background: radial-gradient(circle at top left, #ff4d00, rgb(215, 55, 6) 60%, #b20000);
   /* Yellow color, adjust as needed */
   padding: 8px 15px;
   border-radius: 50px;
@@ -112,49 +104,20 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.nav_right_sec {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: clamp(2rem, 2.4vw, 3rem);
-  height: clamp(2rem, 2.4vw, 3rem);
-  background-color: #ffe066;
-  /* Yellow color, adjust as needed */
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.nav_right_sec:hover {
-  background-color: #ffd43b;
-}
-
 .nav_right_menu {
   display: none;
-  /* Hidden by default, shown on smaller screens */
   justify-content: center;
   align-items: center;
-  background-color: #ffe066;
-  /* Yellow color, adjust as needed */
+  background: radial-gradient(circle at top left, #ff4d00, rgb(215, 55, 6) 60%, #b20000);
   padding: 8px;
-  /* Adjusted padding for better look */
   border: none;
   border-radius: 50px;
-  /* Make it circular */
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-}
-
-.nav_right_menu:hover {
-  background-color: #ffd43b;
 }
 
 .nav_right_menu svg {
-  width: 1.5em;
-  height: 1.5em;
   color: white;
   /* Icon color */
 }
@@ -180,22 +143,16 @@
   padding-bottom: 0.2em;
 }
 
-/* This class doesn't seem to be used in the provided JS, but kept for completeness if needed */
-.nav_right_copy {
-  position: fixed;
-  right: clamp(26px, 2vw, 40px);
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  gap: clamp(0.8rem, 1.5vw, 2rem);
-  z-index: 1000;
-  border-radius: 40px;
-  padding: 6px 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
 /* Media Queries for Responsiveness */
 @media (max-width: 900px) {
+  .menu_items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    right: 4%;
+    top: 4%;
+  }
   /* Adjusted breakpoint for tablet/smaller desktops */
   .nav_center {
     gap: clamp(0.5rem, 1vw, 1.5rem);
@@ -206,31 +163,29 @@
     /* Reduce font size */
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   /* Common breakpoint for tablets */
   .nav_center {
-    display: flex;
+    display: none;
     /* Hide center nav links */
   }
-  .nav_right_menu {
-    display: flex;
-    /* Show menu button */
-  }
 }
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .nav_right_first {
     padding: 6px 12px;
     /* Smaller padding for smaller screens */
   }
-  .nav_right_sec {
-    width: clamp(1.8rem, 2.2vw, 2.5rem);
-    height: clamp(1.8rem, 2.2vw, 2.5rem);
+  .nav_right .profile svg,
+  .nav_right .cart svg {
+    width: clamp(1.8rem, 4vw, 2rem);
+    height: clamp(1.8rem, 4vw, 2rem);
   }
   .nav_right_menu {
+    display: flex;
     padding: 6px;
   }
   .nav_right_menu svg {
-    width: 1.3em;
-    height: 1.3em;
+    width: 2rem;
+    height: 2rem;
   }
 }/*# sourceMappingURL=Navbar.css.map */
