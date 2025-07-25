@@ -92,7 +92,7 @@ export const proteinWafer = [
     {
         title: "Variety Box — Pack of 10",
         price: "₹500",
-        mainImg: "http://superyou.in/cdn/shop/files/SuperyouPDP_AssortedPack_FOP.jpg?v=1731756079&width=823",
+        mainImg: "https://superyou.in/cdn/shop/files/SuperyouPDP_AssortedPack_FOP.jpg?v=1731756079&width=823",
         firstImg: "https://superyou.in/cdn/shop/files/Super_you_PDP_Strawberry_Strawberry_5_1.jpg?v=1740390589",
         secImg: "https://superyou.in/cdn/shop/files/SuperyouPDP_ChocoPeanutButter_Peanutbutter_5_f4e3c6f2-74c2-41bc-b38a-f8cbf59f7275.jpg?v=1740390436",
         ingredientsImg: "https://superyou.in/cdn/shop/files/Super_you_PDP_Assorted_Pack_Assorted_5.jpg?v=1734600260",
