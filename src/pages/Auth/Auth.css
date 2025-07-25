@@ -13,7 +13,7 @@
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 3rem;
-  width: 100%;
+  width: 98%;
   max-width: 420px;
   box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
