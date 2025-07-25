@@ -95,7 +95,8 @@ const AboutUs = () => {
 
       <section className="join-movement">
         <h2>Ready to unleash your Superyou?</h2>
-        <button className="cta-button">Join the Movement</button>
+        <button onClick={() => window.open("https://www.instagram.com/be.superyou/", "_blank")}
+          className="cta-button">Join the Movement</button>
       </section>
 
     </div>

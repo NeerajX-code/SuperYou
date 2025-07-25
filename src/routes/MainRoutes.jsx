@@ -4,6 +4,8 @@ import AboutUs from '../pages/AboutUs/AboutUs'
 import Shop from '../pages/Shop/Shop'
 import Faq from '../pages/Faq/Faq'
 import ProductDetail from '../pages/ProductDetail/ProductDetail'
+import Cart from '../pages/Cart/Cart'
+import AuthPage from '../pages/Auth/Auth'
 
 const MainRoutes = () => {
   return (
@@ -12,6 +14,8 @@ const MainRoutes = () => {
       <Route path='/About' element={<AboutUs />} />
       <Route path='/Shop' element={<Shop />} />
       <Route path='/Faq' element={<Faq />} />
+      <Route path='/Cart' element={<Cart />} />
+      <Route path='/Auth' element={<AuthPage />} />
       <Route path='/Product/detail/:title' element={<ProductDetail />} />
     </Routes>
   )

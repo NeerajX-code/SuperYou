@@ -20,7 +20,7 @@ const DetailofProduct = ({Product}) => {
                 </button>
                 {isAboutOpen && (
                     <div className="answer">
-                        <p>{Product[0].about}</p>
+                        <p>{Product.about}</p>
                     </div>
                 )}
             </div>
@@ -35,7 +35,7 @@ const DetailofProduct = ({Product}) => {
                 </button>
                 {isAllergenOpen && (
                     <div className="answer">
-                        <p>{Product[0].alergenInfo}</p>
+                        <p>{Product.alergenInfo}</p>
                     </div>
                 )}
             </div>
@@ -48,7 +48,7 @@ const DetailofProduct = ({Product}) => {
                 </button>
                 {isIngredientsOpen && (
                     <div className="answer">
-                        <p>{Product[0].ingredientInfo}</p>
+                        <p>{Product.ingredientInfo}</p>
                     </div>
                 )}
             </div>

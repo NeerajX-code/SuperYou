@@ -12,3 +12,8 @@ body,
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
+

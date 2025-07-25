@@ -78,8 +78,8 @@ const ChipsShowcase = () => {
 
       <div className="chips_container">
         {chips.map((chip, i) => (
-          <NavLink style={{textDecoration:"none"}} to={`/Product/detail/${chip.linkTitle}`} >
-            <div className="chip_card" key={i}
+          <NavLink key={i} style={{ textDecoration: "none" }} to={`/Product/detail/${chip.linkTitle}`} >
+            <div className="chip_card"
             >
 
               <motion.img src={chip.src} alt={chip.name} loading="lazy" className={`chip_item chip_item_${i}`}

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import MainRoutes from './routes/MainRoutes';
 import HomeFooter from './components/Home/HomeFooter/HomeFooter';
 import Loader from "./components/Loader/Loader"
+import Footer from "./components/Footer/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,9 +14,10 @@ const App = () => {
   return (
     <div className="app">
       <Suspense fallback={<div className="loading-fallback"><Loader /></div>}>
-      <Navbar />
-      <MainRoutes />
-      <HomeFooter />
+        <Navbar />
+        <MainRoutes />
+        {/* <HomeFooter /> */}
+        <Footer />
       </Suspense>
     </div>
   );

@@ -110,8 +110,8 @@ const Navbar = () => {
       </div>
       <div className="nav_right">
         <div className="nav_right_first">
-          <NavLink className="profile" to="/profile"><UserRound /></NavLink>
-          <NavLink className="cart" to="/cart"><ShoppingCart /></NavLink>
+          <NavLink className="profile" to="/Auth"><UserRound /></NavLink>
+          <NavLink className="cart" to="/Cart"><ShoppingCart /></NavLink>
         </div>
 
         <AnimatePresence mode="wait">
