@@ -1,0 +1,24 @@
+.detail_of_product_for_desk {
+    width: 100%;
+
+    .dop_desk_h1 {
+        font-family: "Lexend", sans-serif;
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+
+    }
+
+    .dop_desk_p {
+        font-family: "Lexend", sans-serif;
+        font-size: clamp(1rem, 1vw, 1.4rem);
+    }
+
+    @media (max-width:530px) {
+        display: none;
+    }
+
+    @media (max-width:920px) {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}

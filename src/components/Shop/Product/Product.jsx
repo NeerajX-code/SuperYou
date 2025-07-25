@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { proteinChips } from "../../ProductData/ProductData";
+import { proteinWafer } from "../../ProductData/ProductData";
+import { NavLink } from "react-router-dom";
 import "./Product.css"
 
 const containerVariants = {
@@ -26,6 +29,88 @@ const Product = ({ isActive }) => {
     const showWafer = isActive === "protein_wafer" || isActive === "all_collection";
     const showChips = isActive === "protein_chips" || isActive === "all_collection";
 
+    const renderChipsData = proteinChips.map((item, id) => {
+        return (
+            <motion.div key={id} className="wafer_item" variants={itemVariants}
+                whileHover="hover">
+                <div className="wafer_item_img_cont">
+                    <img src={item.mainImg}
+                        srcSet={`
+      ${item.mainImg}?width=400 400w,
+      ${item.mainImg}?width=600 600w,
+      ${item.mainImg}?width=800 800w,
+      ${item.mainImg}?width=1000 1000w
+    `}
+                        loading="lazy"
+                        className={`wafer_item_img_${id}`} alt="" />
+                </div>
+                <div className="wafer_item_det">
+                    <NavLink to={`/Product/detail/${item.title}`} style={{ textDecoration: "none" }}>
+                        <motion.p
+                            initial={{ color: "black", textDecoration: "none" }}
+                            whileHover={{
+                                color: "black",
+                                textDecoration: "underline",
+                                textDecorationColor: "#5F9EA0",
+                                transition: { duration: 0.3, ease: "easeInOut" }
+                            }}
+                            style={{
+                                fontSize: "16px",
+                                cursor: "pointer"
+                            }}
+                        >
+                            {item.title}
+                        </motion.p>
+                    </NavLink>
+
+                    <p style={{ marginTop: "clamp(0.5rem,1vw,1rem)" }}>RS. {item.price}</p>
+                    <button className='add_to_cart'>Add to cart</button>
+                </div>
+            </motion.div>
+        )
+    })
+
+    const renderWaferData = proteinWafer.map((item, id) => {
+        return (
+            <motion.div key={id} className="wafer_item" variants={itemVariants}
+                whileHover="hover">
+                <div className="wafer_item_img_cont">
+                    <img src={item.mainImg}
+                        srcSet={`
+      ${item.mainImg}?width=400 400w,
+      ${item.mainImg}?width=600 600w,
+      ${item.mainImg}?width=800 800w,
+      ${item.mainImg}?width=1000 1000w
+    `}
+                        loading="lazy"
+                        className={`wafer_item_img_${id}`} alt="" />
+                </div>
+                <div className="wafer_item_det">
+                    <NavLink to={`/Product/detail/${item.title}`} style={{ textDecoration: "none" }}>
+                        <motion.p
+                            initial={{ color: "black", textDecoration: "none" }}
+                            whileHover={{
+                                color: "black",
+                                textDecoration: "underline",
+                                textDecorationColor: "#5F9EA0",
+                                transition: { duration: 0.3, ease: "easeInOut" }
+                            }}
+                            style={{
+                                fontSize: "16px",
+                                cursor: "pointer"
+                            }}
+                        >
+                            {item.title}
+                        </motion.p>
+                    </NavLink>
+
+                    <p style={{ marginTop: "clamp(0.5rem,1vw,1rem)" }}>RS. {item.price}</p>
+                    <button className='add_to_cart'>Add to cart</button>
+                </div>
+            </motion.div>
+        )
+    })
+
     return (
         <motion.div className="products" variants={containerVariants}
             initial="hidden"
@@ -38,60 +123,7 @@ const Product = ({ isActive }) => {
                         display: "grid",
                     }}
                 >
-                    <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                    <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
+                  {renderWaferData}
                 </div>
             )}
 
@@ -103,60 +135,7 @@ const Product = ({ isActive }) => {
                         display: "grid",
                     }}
                 >
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
-                     <motion.div className="wafer_item" variants={itemVariants}
-                        whileHover="hover">
-                        <img src="https://superyou.in/cdn/shop/files/Strawberry_Chocolate_1.jpg?v=1740390589&width=533" alt="" />
-                        <div className="wafer_item_det">
-                            <p>Strawberry Creme & Chocolate Combo-Pack of 10 each</p>
-                            <p>RS. 899.00</p>
-                            <button className='add_to_cart'>Add to cart</button>
-                        </div>
-                    </motion.div>
+                    {renderChipsData}
                 </div>
             )}
         </motion.div>

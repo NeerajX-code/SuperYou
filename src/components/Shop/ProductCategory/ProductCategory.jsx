@@ -4,25 +4,28 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import "./ProductCategory.css";
 
+const categories = [
+    { key: "all_collection", label: "All Collection" },
+    { key: "protein_wafer", label: "Protein Wafer" },
+    { key: "protein_chips", label: "Protein Chips" },
+]
+
 const ProductCategory = ({ isActive, setActive }) => {
     const buttonsRef = useRef([]);
     const containerRef = useRef(null);
 
     useEffect(() => {
-        gsap.from(buttonsRef.current, {
+        const anim = gsap.from(buttonsRef.current, {
             y: 20,
             opacity: 0,
             stagger: 0.1,
             duration: 0.6,
             ease: "power3.out"
-        })
-    }, [])
+        });
 
-    const categories = [
-        { key: "all_collection", label: "All Collection" },
-        { key: "protein_wafer", label: "Protein Wafer" },
-        { key: "protein_chips", label: "Protein Chips" },
-    ]
+        return () => anim.kill();
+    }, []);
+
 
     return (
         <motion.div className="product_category" initial={{ opacity: 0, y: 30 }}

@@ -136,7 +136,7 @@ const Navbar = () => {
                   key="menu-icon"
                   initial={{ y: -20, opacity: 0, rotate: -30 }}
                   animate={{ y: 0, opacity: 1, rotate: 0 }}
-                  exit={{ y: 20, opacity: 0, rotate: 30 }}
+                  exit={{ y: 10, opacity: 0, rotate: 30 }}
                   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 >
                   <Menu size={42} />

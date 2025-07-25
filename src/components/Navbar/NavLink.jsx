@@ -3,7 +3,7 @@ import { House, Store, BookUser, MessageCircleQuestionMark } from "lucide-react"
 
 export const navLinks = [
   { label: 'Home', to: '/', icon: House },
-  { label: 'Shop', to: '/shop', icon: Store },
-  { label: 'About', to: '/about', icon: BookUser },
-  { label: 'FAQ', to: '/faq', icon: MessageCircleQuestionMark },
+  { label: 'Shop', to: '/Shop', icon: Store },
+  { label: 'About', to: '/About', icon: BookUser },
+  { label: 'FAQ', to: '/Faq', icon: MessageCircleQuestionMark },
 ];

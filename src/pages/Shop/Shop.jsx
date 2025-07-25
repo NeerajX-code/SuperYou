@@ -1,8 +1,6 @@
 import { lazy, useState } from 'react';
 import './Shop.css';
-import Carousel from '../../components/Shop/Carousel/Carousel';
-import HomeFooter from '../../components/Home/HomeFooter/HomeFooter';
-
+const Carousel = lazy(() => import('../../components/Shop/Carousel/Carousel'));
 const ProductCategory = lazy(() => import('../../components/Shop/ProductCategory/ProductCategory'));
 const Product = lazy(() => import('../../components/Shop/Product/Product'));
 const Marquee = lazy(() => import('../../components/Shop/Marquee/Marquee'));
